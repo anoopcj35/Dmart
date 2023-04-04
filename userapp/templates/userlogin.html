@@ -1,0 +1,75 @@
+{% extends 'userindex.html' %}
+{% block content %}
+
+  <style>
+    .tab-content {
+margin: auto;
+width: 30%;
+
+padding: 10px;
+}
+  </style>
+
+    <!-- Categories Start -->
+    <div class="container-fluid pt-5" >
+      <h2 class="section-title position-relative"><span class="bg-secondary pr-3"></span></h2>
+      <div class="row px-xl-5 pb-3" style="text-align: center;">
+       <!-- Pills navs -->
+<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+ 
+</ul>
+<!-- Pills navs -->
+
+<!-- Pills content -->
+<div class="tab-content" style="text-align: center;" >
+  <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+    <form style="text-align:center;" method="POST" action="{% url 'memberlogin' %}">
+      {% csrf_token %}
+     
+      
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="loginName" name="user1" class="form-control" />
+        <label class="form-label" for="loginName"> Username</label>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="loginPassword" name="pass1" class="form-control" />
+        <label class="form-label" for="loginPassword">Password</label>
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-check-label" for="loginCheck"> New Member!  </label>
+            <p><a href="{% url 'ureg' %}"> Register</a></p>
+      </div>
+
+      <!-- 2 column grid layout -->
+      <!--div class="row mb-4">
+        <div class="col-md-6 d-flex justify-content-center">
+          
+          <div class="form-check mb-4 mb-md-0">
+           
+            <label class="form-check-label" for="loginCheck"> New Member!  </label>
+            <p><a href="{% url 'ureg' %}"> Register</a></p>
+                        </div>
+        </div-->
+
+        <div class="col-md-6 d-flex justify-content-center">
+          
+          <!--a href="#!">Forgot password?</a-->
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+      <!-- Register buttons -->
+      <p>{{msg}}</p>
+    </form>
+  </div>
+ 
+      </div>
+  </div>
+  <!-- Categories End -->
+{% endblock %}

@@ -1,0 +1,170 @@
+{% extends 'userindex.html' %}
+{% block content %}
+
+<style type="text/css">
+		.error{
+			color: red
+		}
+</style>
+
+    
+
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-lg-8">
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Registration Form</span></h5>
+            <div class="bg-light p-30 mb-5">
+                <form action="{% url 'regdata' %}" method="POST" id="frm">
+                    {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>First Name</label>
+                        <input class="form-control" type="text" placeholder="" name="fname" id="fname">
+                        <td id="v_name"></td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Last Name</label>
+                        <input class="form-control" type="text" placeholder=""name="lname" id="lname">
+                        <td id="v_name"></td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>username</label>
+                        <input class="form-control" type="text" placeholder="" name="uname" id="uname">
+                        <td id="v_email">&nbsp;</td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>password</label>
+                        <input class="form-control" type="password" placeholder="" name="pword" id="pword">
+                        <td id="v_pwd">&nbsp;</td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>confirm password</label>
+                        <input class="form-control" type="password" placeholder="" name="cpwd" id="cpwd">
+                        <td id="v_cpwd">&nbsp;</td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Mobile No</label>
+                        <input class="form-control" type="number" placeholder="" name="mnum" id="mnum">
+                        <td id="v_mnum">&nbsp;</td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Address </label>
+                        <input class="form-control" type="text" placeholder="" name="add" id="add">
+                        <td id="v_add">&nbsp;</td>
+                    </div>    
+                    <div class="col-md-6 form-group">
+                        <label>City</label>
+                        <input class="form-control" type="text" placeholder="" name="city" id="city">
+                        <td id="v_city">&nbsp;</td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>State</label>
+                        <input class="form-control" type="text" placeholder="" name="state" id="state">
+                        <td id="v_state">&nbsp;</td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>ZIP Code</label>
+                        <input class="form-control" type="text" placeholder="" name="pincode" id="pincode">
+                        <td id="v_pincode">&nbsp;</td>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label></label><br><br>
+                        <!--input class="submit" type="text" placeholder="" -->
+                    </div>
+                    
+                    <div class="col-md-6 form-group">
+                        <label></label><br>
+                        <input type="submit" type="text" placeholder="" value="SUBMIT">
+                    </div>
+                    
+                </div>
+                </form>
+            </div>
+           
+        </div>
+       
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+<script type="text/javascript">
+        $('#frm').validate({
+            rules: {
+                fname: {
+                    required: true,
+                    minlength: 2
+                },
+                lname: {
+                    required: true,
+                    minlength: 2
+                },
+                add: {
+                    required: true,
+                    minlength: 5
+                },
+                city: {
+                    required: true,
+                    minlength: 5
+                },
+                mnum: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10
+                },
+                state: {
+                    required: true,
+                    minlength: 5
+                },
+                pincode: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 6
+                },
+                'lang[]': {
+                    required: true
+                },
+                uname:{
+                    required:true,
+                    
+                },
+                pword:{
+                    required:true,
+                    minlength:5
+                },
+                cpwd:{
+                    required:true,
+                    equalTo: "#pword"
+                },
+                gender:{
+                    required:true
+                },
+                dist:{
+                    required:true
+                }
+            // },
+   //   errorPlacement: function(error, element) {
+   //       if(element.attr("name") == "pwd") {
+   //         error.appendTo("#messageBox" );
+   //       } else {
+   //         error.insertAfter(element);
+   //      }
+   // },
+
+            // messages:{
+            // 	name: {
+            // 		required: 'Name is required'
+                    
+            // 	},
+            // 	'lang[]': {
+            //  	required: 'Languages is required'
+            //  }
+
+             }
+             
+             
+        })
+                
+        
+</script>
+{% endblock %}

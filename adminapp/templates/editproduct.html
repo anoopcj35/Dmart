@@ -1,0 +1,49 @@
+
+{% extends 'adminindex.html' %}
+{% block content %}
+<body><br><br>
+
+    <h2 style=" text-align: center;">Product Details </h2><br><br>
+  
+    
+    {% for i in data %}
+    <form action="{% url 'productupdate' id=i.id %}"  method="POST" enctype="multipart/form-data" style="text-align: center;">
+    {% csrf_token %}
+    
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Product name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pname" name="pname" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Procuct price</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pprice" name="pprice" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Procuct quantiy</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pquantity" name="pquantity" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Product image</label>
+      <div class="col-sm-10">
+        <input type="file" class="form-control" id="pimage" name="pimage" >
+      </div>
+    </div>    
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+   
+    </form> 
+    {% endfor %}
+
+    
+    </body>
+{% endblock %}
